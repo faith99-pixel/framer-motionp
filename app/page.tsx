@@ -12,10 +12,10 @@ export default function Home() {
       <AnimatePresence mode="wait">
         {showForm ? (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: -50, opacity: 100 }}
+            exit={{ y: 30, opacity: 0 }}
+            transition={{ duration: 0.4 }}
             key={"form"}
           >
             <div className="px-6 py-8 w-[351px] bg-[#202831] rounded-3xl text-white">
@@ -38,7 +38,7 @@ export default function Home() {
                 {[1, 2, 3, 4, 5].map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-center rounded-full bg-[#272e3a] hover:bg-[#fa7710] p-2 w-[44.75px] h-[44.75px] hover:-translate-y-2 ease-linear duration-75 transition cursor-pointer text-white/50 hover:text-white/100"
+                    className="flex items-center justify-center rounded-full bg-[#272e3a] hover:animate-bounce hover:animate-once hover:delay-60 hover:bg-[#495364] p-2 w-[44.75px] h-[44.75px] cursor-pointer text-white/50 hover:text-white/100"
                   >
                     <span className="text-sm">{item}</span>
                   </div>
@@ -48,22 +48,22 @@ export default function Home() {
               <Button
                 title="Submit"
                 onClick={() => setShowForm(false)}
-                className="mt-8 max-w-[287px] mx-auto uppercase text-white"
+                className="mt-8 max-w-[287px] mx-auto uppercase text-black tracking-wide transition-transform scale-y-2"
               />
             </div>
           </motion.div>
         ) : (
           <motion.div
-            initial={{ opacity: 1, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 5 }}
-            transition={{ duration: 0.2 }}
+            initial={{ y: 100, opacity: 100 }}
+            animate={{ y: -50 }}
+            exit={{ y: 10, opacity: 0 }}
+            transition={{ duration: 0.4 }}
             key={"button"}
           >
             <Button
               title="Submit feedback"
               onClick={() => setShowForm(true)}
-              className=" max-w-[287px] mx-auto uppercase text-white"
+              className=" max-w-[300px] px-10 py-2 mx-auto uppercase text-white tracking-wider text-sm font-medium transition-transform scale-y-2"
             />
           </motion.div>
         )}
